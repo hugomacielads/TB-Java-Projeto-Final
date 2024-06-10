@@ -1,5 +1,5 @@
 package com.olabi.babylonbank.model.entity;
 
 public enum CategoriaCliente {
-    BRONZE, PRATA, OURO;
+    BRONZE, PRATA, OURO, PLATINUM;
 }
