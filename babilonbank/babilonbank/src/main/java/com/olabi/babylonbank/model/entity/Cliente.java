@@ -1,5 +1,6 @@
 package com.olabi.babylonbank.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +16,8 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     private CategoriaCliente categoria;
 
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Conta conta;
 
     public Cliente(String nome, String cpf, String email, double rendaMensal) {

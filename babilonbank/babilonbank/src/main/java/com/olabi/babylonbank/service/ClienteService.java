@@ -65,6 +65,7 @@ public class ClienteService {
         conta.setSaldo(cliente.getRendaMensal());
         definirLimitesConta(conta, cliente.getRendaMensal(), cliente.getCategoria());
         contaRepository.save(conta);
+        cliente.setConta(conta);
         cliente = clienteRepository.save(cliente);
         return cliente;
     }

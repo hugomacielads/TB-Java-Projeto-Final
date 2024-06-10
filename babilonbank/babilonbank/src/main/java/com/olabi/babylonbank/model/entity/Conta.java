@@ -1,5 +1,6 @@
 package com.olabi.babylonbank.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class Conta {
 
     @OneToOne
     @JoinColumn(name = "cliente_id")
+    @JsonBackReference
     private Cliente cliente;
 
     @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
