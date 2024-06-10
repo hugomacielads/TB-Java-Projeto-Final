@@ -2,6 +2,7 @@ package com.olabi.babylonbank.service;
 
 import com.olabi.babylonbank.model.entity.CategoriaCliente;
 import com.olabi.babylonbank.model.entity.Cliente;
+import com.olabi.babylonbank.model.entity.Conta;
 import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.repository.ContaRepository;
 import com.olabi.babylonbank.repository.TransacaoRepository;
@@ -27,6 +28,29 @@ public class ClienteService {
             cliente.setCategoria(CategoriaCliente.OURO);
         } else if (renda >= 5000){
             cliente.setCategoria(CategoriaCliente.PLATINUM);
+        }
+    }
+
+    private void definirLimitesConta(Conta conta, double renda, CategoriaCliente categoria) {
+
+        if (categoria == CategoriaCliente.PRATA) {
+            conta.setChequeEspecial(renda * 0.1);
+            conta.setLimiteCartaoCredito(renda * 0.3);
+
+        } else if (categoria == CategoriaCliente.OURO) {
+            conta.setChequeEspecial(renda * 0.3);
+            conta.setLimiteCartaoCredito(renda * 0.6);
+            // conta.setLimiteParcelaFinanciamento(renda * 0.3);
+
+        } else if (categoria == CategoriaCliente.PLATINUM) {
+            conta.setChequeEspecial(renda * 0.5);
+            conta.setLimiteCartaoCredito(Double.MAX_VALUE);
+            // conta.setLimiteParcelaFinanciamento(renda * 0.3);
+            // conta.setLiberarInvestimento("S");
+
+        } else { // BRONZE
+            conta.setChequeEspecial(0);
+            conta.setLimiteCartaoCredito(0);
         }
     }
 }
