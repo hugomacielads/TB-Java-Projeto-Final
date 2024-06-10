@@ -20,9 +20,9 @@ public class DatabaseInitializer implements CommandLineRunner {
     }
 
     public static final List<Cliente> clientes = List.of(
-            new Cliente("Hugo", "12345678956", "hugo@email.com", 3500),
-            new Cliente("Gabriela", "12345678923", "gabi@email.com", 2500),
-            new Cliente("Tulio", "12323678956", "tulio@email.com", 1500)
+            // new Cliente("Hugo", "12345678956", "hugo@email.com", 3500),
+            // new Cliente("Gabriela", "12345678923", "gabi@email.com", 2500),
+            // new Cliente("Tulio", "12323678956", "tulio@email.com", 1500)
     );
 
     @Override
@@ -30,7 +30,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         log.info("Alô pepe moreno? O banco ta conectado");
         log.info("Inserindo Clientes...");
         log.info("****************************");
-        clienteRepository.saveAll(clientes);
+        // clienteRepository.saveAll(clientes);
         log.info("Clientes inseridos com sucesso!");
     }
 }
