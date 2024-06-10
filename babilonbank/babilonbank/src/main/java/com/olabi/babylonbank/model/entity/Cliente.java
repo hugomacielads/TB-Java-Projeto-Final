@@ -18,6 +18,13 @@ public class Cliente {
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Conta conta;
 
+    public Cliente(String nome, String cpf, String email, double rendaMensal) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.rendaMensal = rendaMensal;
+    }
+
     public Long getId() {
         return id;
     }
