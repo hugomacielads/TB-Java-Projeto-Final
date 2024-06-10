@@ -8,6 +8,7 @@ import com.olabi.babylonbank.repository.ContaRepository;
 import com.olabi.babylonbank.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClienteService {
@@ -52,5 +53,17 @@ public class ClienteService {
             conta.setChequeEspecial(0);
             conta.setLimiteCartaoCredito(0);
         }
+    }
+
+    @Transactional
+    public Cliente cadastrarCliente(Cliente cliente) {
+        definirCategoria(cliente);
+        cliente = clienteRepository.save(cliente);
+        Conta conta = new Conta();
+        conta.setCliente(cliente);
+        conta.setSaldo(cliente.getRendaMensal());
+        definirLimitesConta(conta, cliente.getRendaMensal(), cliente.getCategoria());
+        contaRepository.save(conta);
+        return cliente;
     }
 }

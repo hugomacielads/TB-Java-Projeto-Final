@@ -15,4 +15,8 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
+    @PostMapping
+    public Cliente cadastrarCliente(@RequestBody Cliente cliente) {
+        return clienteService.cadastrarCliente(cliente);
+    }
 }
