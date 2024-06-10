@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
     @Autowired
@@ -58,12 +60,16 @@ public class ClienteService {
     @Transactional
     public Cliente cadastrarCliente(Cliente cliente) {
         definirCategoria(cliente);
-        cliente = clienteRepository.save(cliente);
         Conta conta = new Conta();
         conta.setCliente(cliente);
         conta.setSaldo(cliente.getRendaMensal());
         definirLimitesConta(conta, cliente.getRendaMensal(), cliente.getCategoria());
         contaRepository.save(conta);
+        cliente = clienteRepository.save(cliente);
         return cliente;
+    }
+
+    public List<Cliente> listarClientes() {
+        return clienteRepository.findAll();
     }
 }

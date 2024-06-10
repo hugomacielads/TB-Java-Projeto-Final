@@ -25,6 +25,10 @@ public class Cliente {
         this.rendaMensal = rendaMensal;
     }
 
+    public Cliente() {
+
+    }
+
     public Long getId() {
         return id;
     }

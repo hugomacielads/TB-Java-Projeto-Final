@@ -28,9 +28,9 @@ public class DatabaseInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Alô pepe moreno? O banco ta conectado");
-        log.info("Inserindo Filmes...");
+        log.info("Inserindo Clientes...");
         log.info("****************************");
         clienteRepository.saveAll(clientes);
-        log.info("Filmes inseridos com sucesso!");
+        log.info("Clientes inseridos com sucesso!");
     }
 }
