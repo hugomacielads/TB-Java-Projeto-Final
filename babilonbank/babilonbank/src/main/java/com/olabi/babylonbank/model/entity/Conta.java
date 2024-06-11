@@ -1,6 +1,7 @@
 package com.olabi.babylonbank.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class Conta {
     private Cliente cliente;
 
     @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Transacao> transacoes;
 
     public Long getId() {
