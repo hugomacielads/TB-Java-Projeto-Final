@@ -114,4 +114,9 @@ public class ClienteService {
         transacaoRepository.save(transacao);
         contaRepository.save(conta);
     }
+
+    public List<Transacao> listarTransacoes(Long contaId) {
+        Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
+        return conta.getTransacoes();
+    }
 }
