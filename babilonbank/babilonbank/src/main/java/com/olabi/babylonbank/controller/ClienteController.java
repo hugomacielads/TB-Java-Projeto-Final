@@ -28,4 +28,9 @@ public class ClienteController {
     public Cliente atualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
         return clienteService.atualizarCliente(id, cliente);
     }
+
+    @GetMapping("/{id}")
+    public Cliente buscarCliente(@PathVariable Long id) {
+        return clienteService.buscarCliente(id);
+    }
 }

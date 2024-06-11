@@ -92,4 +92,8 @@ public class ClienteService {
 
         return cliente;
     }
+
+    public Cliente buscarCliente(Long id) {
+        return clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+    }
 }
