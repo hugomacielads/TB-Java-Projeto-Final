@@ -23,4 +23,9 @@ public class ClienteController {
     public List<Cliente> listarClientes() {
         return clienteService.listarClientes();
     }
+
+    @PutMapping("/{id}")
+    public Cliente atualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
+        return clienteService.atualizarCliente(id, cliente);
+    }
 }

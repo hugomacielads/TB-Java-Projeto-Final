@@ -73,4 +73,23 @@ public class ClienteService {
     public List<Cliente> listarClientes() {
         return clienteRepository.findAll();
     }
+
+    @Transactional
+    public Cliente atualizarCliente(Long id, Cliente clienteAtualizado) {
+
+        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        cliente.setNome(clienteAtualizado.getNome());
+        cliente.setEmail(clienteAtualizado.getEmail());
+        cliente.setRendaMensal(clienteAtualizado.getRendaMensal());
+        definirCategoria(cliente);
+        clienteRepository.save(cliente);
+
+        Conta conta = cliente.getConta();
+        conta.setSaldo(cliente.getRendaMensal());
+        definirLimitesConta(conta, cliente.getRendaMensal(), cliente.getCategoria());
+        contaRepository.save(conta);
+
+        return cliente;
+    }
 }
