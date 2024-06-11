@@ -1,6 +1,7 @@
 package com.olabi.babylonbank.controller;
 
 import com.olabi.babylonbank.model.entity.Cliente;
+import com.olabi.babylonbank.model.entity.Transacao;
 import com.olabi.babylonbank.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,10 @@ public class ClienteController {
     @GetMapping("/{id}")
     public Cliente buscarCliente(@PathVariable Long id) {
         return clienteService.buscarCliente(id);
+    }
+
+    @PostMapping("/{id}/transacoes")
+    public void realizarTransacao(@PathVariable Long id, @RequestBody Transacao transacao) {
+        clienteService.realizarTransacao(id, transacao);
     }
 }

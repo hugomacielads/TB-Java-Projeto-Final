@@ -1,8 +1,6 @@
 package com.olabi.babylonbank.service;
 
-import com.olabi.babylonbank.model.entity.CategoriaCliente;
-import com.olabi.babylonbank.model.entity.Cliente;
-import com.olabi.babylonbank.model.entity.Conta;
+import com.olabi.babylonbank.model.entity.*;
 import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.repository.ContaRepository;
 import com.olabi.babylonbank.repository.TransacaoRepository;
@@ -95,5 +93,25 @@ public class ClienteService {
 
     public Cliente buscarCliente(Long id) {
         return clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+    }
+
+    @Transactional
+    public void realizarTransacao(Long contaId, Transacao transacao) {
+        Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
+        transacao.setConta(conta);
+
+        if (transacao.getTipo() == TipoTransacao.DEBITO) {
+            if (conta.getSaldo() + conta.getChequeEspecial() < transacao.getValor()) {
+                throw new RuntimeException("Saldo insuficiente");
+            }
+            conta.setSaldo(conta.getSaldo() - transacao.getValor());
+        } else if (transacao.getTipo() == TipoTransacao.CREDITO) {
+            conta.setSaldo(conta.getSaldo() + transacao.getValor());
+        } else {
+            throw new RuntimeException("Tipo de transação inválido");
+        }
+
+        transacaoRepository.save(transacao);
+        contaRepository.save(conta);
     }
 }
