@@ -50,4 +50,9 @@ public class ClienteController {
     public void realizarTransacaoCredito(@PathVariable Long id, @RequestBody TransacaoCredito transacaoCredito) {
         clienteService.realizarTransacaoCredito(id, transacaoCredito);
     }
+
+    @GetMapping("/{id}/transacoesCredito")
+    public List<TransacaoCredito> listarTransacoesCredito(@PathVariable Long id) {
+        return clienteService.listarTransacoesCredito(id);
+    }
 }

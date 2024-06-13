@@ -44,13 +44,13 @@ public class ClienteService {
         } else if (categoria == CategoriaCliente.OURO) {
             conta.setChequeEspecial(renda * 0.3);
             conta.setLimiteCartaoCredito(renda * 0.6);
-            // conta.setLimiteParcelaFinanciamento(renda * 0.3);
+            conta.setLimiteFinanciamentoAprovado(renda * 0.3);
 
         } else if (categoria == CategoriaCliente.PLATINUM) {
             conta.setChequeEspecial(renda * 0.5);
-            conta.setLimiteCartaoCredito(Double.MAX_VALUE);
-            // conta.setLimiteParcelaFinanciamento(renda * 0.3);
-            // conta.setLiberarInvestimento("S");
+            conta.setLimiteCartaoCredito(renda * 3);
+            conta.setLimiteFinanciamentoAprovado(renda * 0.5);
+            conta.setPorcentagemRetornoInvestimento(0.2);
 
         } else { // BRONZE
             conta.setChequeEspecial(0);
@@ -135,5 +135,10 @@ public class ClienteService {
 
         transacaoCreditoRepository.save(transacaoCredito);
         contaRepository.save(conta);
+    }
+
+    public List<TransacaoCredito> listarTransacoesCredito(Long contaId) {
+        Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
+        return conta.getTransacoesCredito();
     }
 }
