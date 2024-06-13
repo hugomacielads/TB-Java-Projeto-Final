@@ -4,6 +4,7 @@ import com.olabi.babylonbank.model.entity.*;
 import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.repository.ContaRepository;
 import com.olabi.babylonbank.repository.TransacaoRepository;
+import com.olabi.babylonbank.repository.TransacaoCreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,8 @@ public class ClienteService {
     private ContaRepository contaRepository;
     @Autowired
     private TransacaoRepository transacaoRepository;
+    @Autowired
+    private TransacaoCreditoRepository transacaoCreditoRepository;
 
     private void definirCategoria(Cliente cliente) {
         double renda = cliente.getRendaMensal();
@@ -118,5 +121,19 @@ public class ClienteService {
     public List<Transacao> listarTransacoes(Long contaId) {
         Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
         return conta.getTransacoes();
+    }
+
+    public void realizarTransacaoCredito(Long contaId, TransacaoCredito transacaoCredito) {
+        Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
+        transacaoCredito.setConta(conta);
+        if (conta.getLimiteCartaoCredito() > transacaoCredito.getValor()) {
+            conta.setFaturaCartaoCredito(conta.getFaturaCartaoCredito() + transacaoCredito.getValor());
+            conta.setLimiteFinanciamentoAprovado(conta.getLimiteCartaoCredito() - transacaoCredito.getValor());
+        } else {
+            throw new RuntimeException("Saldo do Cartão de crédito insuficiente");
+        }
+
+        transacaoCreditoRepository.save(transacaoCredito);
+        contaRepository.save(conta);
     }
 }

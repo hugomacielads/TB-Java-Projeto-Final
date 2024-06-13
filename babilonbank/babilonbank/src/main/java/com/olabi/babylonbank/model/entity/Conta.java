@@ -27,6 +27,10 @@ public class Conta {
     @JsonManagedReference
     private List<Transacao> transacoes;
 
+    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<TransacaoCredito> transacoesCredito;
+
     public Long getId() {
         return id;
     }
@@ -75,5 +79,37 @@ public class Conta {
         this.transacoes = transacoes;
     }
 
-// getters e setters
+    public double getFaturaCartaoCredito() {
+        return faturaCartaoCredito;
+    }
+
+    public void setFaturaCartaoCredito(double faturaCartaoCredito) {
+        this.faturaCartaoCredito = faturaCartaoCredito;
+    }
+
+    public double getLimiteFinanciamentoAprovado() {
+        return limiteFinanciamentoAprovado;
+    }
+
+    public void setLimiteFinanciamentoAprovado(double limiteFinanciamentoAprovado) {
+        this.limiteFinanciamentoAprovado = limiteFinanciamentoAprovado;
+    }
+
+    public double getPorcentagemRetornoInvestimento() {
+        return porcentagemRetornoInvestimento;
+    }
+
+    public void setPorcentagemRetornoInvestimento(double porcentagemRetornoInvestimento) {
+        this.porcentagemRetornoInvestimento = porcentagemRetornoInvestimento;
+    }
+
+    public List<TransacaoCredito> getTransacoesCredito() {
+        return transacoesCredito;
+    }
+
+    public void setTransacoesCredito(List<TransacaoCredito> transacoesCredito) {
+        this.transacoesCredito = transacoesCredito;
+    }
+
+    // getters e setters
 }
