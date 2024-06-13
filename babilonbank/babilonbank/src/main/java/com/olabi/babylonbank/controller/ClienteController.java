@@ -3,6 +3,7 @@ package com.olabi.babylonbank.controller;
 import com.olabi.babylonbank.model.entity.Cliente;
 import com.olabi.babylonbank.model.entity.Transacao;
 import com.olabi.babylonbank.model.entity.TransacaoCredito;
+import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,5 +55,10 @@ public class ClienteController {
     @GetMapping("/{id}/transacoesCredito")
     public List<TransacaoCredito> listarTransacoesCredito(@PathVariable Long id) {
         return clienteService.listarTransacoesCredito(id);
+    }
+
+    @DeleteMapping("/{id}/delete")
+    public void delete(@PathVariable Long id){
+        clienteService.deletarCliente(id);
     }
 }

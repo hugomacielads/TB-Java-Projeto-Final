@@ -8,6 +8,7 @@ import com.olabi.babylonbank.repository.TransacaoCreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -140,5 +141,9 @@ public class ClienteService {
     public List<TransacaoCredito> listarTransacoesCredito(Long contaId) {
         Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
         return conta.getTransacoesCredito();
+    }
+
+    public void deletarCliente(@PathVariable Long id) {
+        clienteRepository.deleteById(id);
     }
 }
