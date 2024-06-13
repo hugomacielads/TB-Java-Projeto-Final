@@ -5,6 +5,7 @@ import com.olabi.babylonbank.model.entity.Transacao;
 import com.olabi.babylonbank.model.entity.TransacaoCredito;
 import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.service.ClienteService;
+import com.olabi.babylonbank.exception.ClienteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,13 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public Cliente cadastrarCliente(@RequestBody Cliente cliente) {
-        return clienteService.cadastrarCliente(cliente);
+    public ResponseEntity<Object> cadastrarCliente(@RequestBody Cliente clienteBody) {
+        try {
+            Cliente cliente = clienteService.cadastrarCliente(clienteBody);
+            return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+        } catch (ClienteException.DuplicateCpfException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
     }
 
     @GetMapping

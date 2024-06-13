@@ -1,5 +1,6 @@
 package com.olabi.babylonbank.service;
 
+import com.olabi.babylonbank.exception.ClienteException;
 import com.olabi.babylonbank.model.entity.*;
 import com.olabi.babylonbank.repository.ClienteRepository;
 import com.olabi.babylonbank.repository.ContaRepository;
@@ -61,6 +62,13 @@ public class ClienteService {
 
     @Transactional
     public Cliente cadastrarCliente(Cliente cliente) {
+
+        boolean clienteExiste = clienteRepository.existsByCpf(cliente.getCpf());
+
+        if (clienteExiste) {
+            throw new ClienteException.DuplicateCpfException();
+        }
+
         definirCategoria(cliente);
         Conta conta = new Conta();
         conta.setCliente(cliente);
