@@ -14,6 +14,9 @@ public class Conta {
     private double saldo;
     private double chequeEspecial;
     private double limiteCartaoCredito;
+    private double faturaCartaoCredito;
+    private double limiteFinanciamentoAprovado;
+    private double porcentagemRetornoInvestimento;
 
     @OneToOne
     @JoinColumn(name = "cliente_id")
