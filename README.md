@@ -32,6 +32,21 @@ O sistema categoriza os clientes com base em sua renda mensal, oferecendo produt
 6. Realização de transações financeiras (crédito e débito).
 7. Acesso ao saldo, extrato de conta pagamento e extrato de cartão de crédito.
 
+## Endpoints da API
+
+### Clientes
+- POST /api/clientes: Cadastra um novo cliente.
+- PUT /api/clientes/{id}: Atualiza os dados de um cliente existente.
+- GET /api/clientes: Lista todos os clientes.
+- GET /api/clientes/{id}: Obtém os dados de um cliente específico.
+
+### Transações
+- POST /api/clientes/{id}/transacoes: Realiza uma transação (crédito ou débito) na conta do cliente.
+- GET /api/clientes/{id}/transacoes: Lista todas as transações da conta do cliente.
+
+### Transações Cartão de Crédito
+- POST /api/clientes/{id}/transacoesCredito: Realiza uma transação do cartão de crédito. Débito na Fatura.
+- GET /clientes/{id}/transacoesCredito: Lista todas as transações da conta de crédito do cliente.
 
 ## Estrutura do Projeto
 A estrutura do projeto segue a arquitetura MVC, integração com banco de dados PostgreSQL.
