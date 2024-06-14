@@ -35,10 +35,10 @@ O sistema categoriza os clientes com base em sua renda mensal, oferecendo produt
 ## Endpoints da API
 
 ### Clientes
-- POST /api/clientes: Cadastra um novo cliente.
-- PUT /api/clientes/{id}: Atualiza os dados de um cliente existente.
-- GET /api/clientes: Lista todos os clientes.
-- GET /api/clientes/{id}: Obtém os dados de um cliente específico.
+- POST /clientes: Cadastra um novo cliente.
+- PUT /clientes/{id}: Atualiza os dados de um cliente existente.
+- GET /clientes: Lista todos os clientes.
+- GET /clientes/{id}: Obtém os dados de um cliente específico.
 
 ### Transações
 - POST /api/clientes/{id}/transacoes: Realiza uma transação (crédito ou débito) na conta do cliente.
