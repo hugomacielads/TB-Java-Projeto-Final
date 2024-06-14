@@ -61,7 +61,14 @@ let preencherTabela = () => {
         // percorrer os clientes
         let conteudo = ""
         clientes.map(cliente => {
-            conteudo = conteudo + `<tr> <td> ${cliente.nome}</td> <td> ${cliente.cpf}</td> <td> ${cliente.email}</td> <td> ${cliente.rendaMensal}</td> <td> ${cliente.categoria} </td> <td> <button onClick="remover(${cliente.id})"> <i class="bi bi-archive-fill"></i> </button> </td> <td> <button onClick="editar(${cliente.nome}, '${cliente.cpf}', '${cliente.email}', ${cliente.rendaMensal})"> <i class="bi bi-pencil-fill"></i> </button> </td> </tr>`
+            conteudo = conteudo + `<tr> 
+            <td> ${cliente.nome}</td> 
+            <td> ${cliente.cpf}</td> 
+            <td> ${cliente.email}</td> 
+            <td> ${cliente.rendaMensal}</td> 
+            <td> ${cliente.categoria} </td> 
+            <td> <button onClick="remover(${cliente.id})"> <i class="bi bi-archive-fill"></i> 
+            </button> </td> <td> <button onClick="editar(${cliente.nome}, '${cliente.cpf}', '${cliente.email}', ${cliente.rendaMensal})"> <i class="bi bi-pencil-fill"></i> </button> </td> </tr>`
         }) 
         document.getElementById("conteudoTabela").innerHTML = conteudo
     }

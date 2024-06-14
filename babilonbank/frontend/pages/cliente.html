@@ -25,28 +25,28 @@
                 </button>
                 <div class="collapse navbar-collapse" id="conteudo">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html"> Home </a>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="../index.html"> Home </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cliente.html"> Cadastro </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="conta.html"> Conta </a>
+                            <a class="nav-link" href="conta.html"> Limites </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="transacao.html"> Transação </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item"> 
                             <a class="nav-link" href="extrato.html"> Extrato </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="fatura.html"> Cartão de Crédito </a>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="fatura.html"> Cartão de Crédito </a> 
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="financiamento.html"> Financiamentos </a>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="financiamento.html"> Financiamentos </a> 
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item"> 
                             <a class="nav-link" href="investimento.html"> Investimentos </a>
                         </li>
                     </ul>
@@ -55,6 +55,7 @@
         </nav>
     </header>
     <main>
+        <br>
         <div class="container">
             <h3> Cadastro de Clientes </h3>
             <form>
@@ -77,15 +78,18 @@
                     <label for="rendaMensal" class="form-label"> Renda Mensal </label>
                     <input type="number" id="rendaMensal" class="form-control" placeholder="Informe sua Renda Mensal" />
                 </div>
+                <br>
                 <button type="button" onclick="cadastrarCliente()" class="btn btn-primary"> Enviar </button>
                 <button type="button" onclick="listarClientes()" class="btn btn-primary"> Atualizar clientes </button>
+                <br>
             </form>
+            <br>
             <div class="container">
                 <h3> Lista de Clientes </h3>
                 <table class="table">
                     <theader>
                         <tr>
-                            <th> ID </th> <th> Nome </th> <th> CPF </th> <th> Email </th> <th> Renda Mensal </th> <th> Categoria </th> <th> Remover </th> <th> Editar </th>
+                            <th> Nome </th> <th> CPF </th> <th> Email </th> <th> Renda Mensal </th> <th> Categoria </th> <th> Saldo </th> <th> Cheque Especial </th> <th> Limite Crédito </th> <th> Limite Financiamento </th> <th> Índice ROI CDB</th> <th> Remover </th> <th> Editar </th>
                         </tr>
                     </theader>
                     <tbody id="conteudoTabela">
