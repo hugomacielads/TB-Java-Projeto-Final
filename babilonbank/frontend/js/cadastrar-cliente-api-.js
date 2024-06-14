@@ -1,6 +1,6 @@
 async function cadastrarCliente() {
     // Pego os dados vindos do formulário
-    const id = document.getElementById('id').value;
+    // const id = document.getElementById('id').value;
     const nome = document.getElementById('nome').value;
     const cpf = document.getElementById('cpf').value;
     const email = document.getElementById('email').value;
@@ -8,7 +8,7 @@ async function cadastrarCliente() {
 
     // aqui, eu crio um objeto JSON com os dados capturados do formulário
     const cliente = {
-        id: id,
+        // id: id,
         nome: nome,
         cpf: cpf,
         email: email,
