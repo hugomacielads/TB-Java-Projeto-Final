@@ -137,7 +137,7 @@ public class ClienteService {
         transacaoCredito.setConta(conta);
         if (conta.getLimiteCartaoCredito() > transacaoCredito.getValor()) {
             conta.setFaturaCartaoCredito(conta.getFaturaCartaoCredito() + transacaoCredito.getValor());
-            conta.setLimiteFinanciamentoAprovado(conta.getLimiteCartaoCredito() - transacaoCredito.getValor());
+            conta.setLimiteCartaoCredito(conta.getLimiteCartaoCredito() - transacaoCredito.getValor());
         } else {
             throw new RuntimeException("Saldo do Cartão de crédito insuficiente");
         }
