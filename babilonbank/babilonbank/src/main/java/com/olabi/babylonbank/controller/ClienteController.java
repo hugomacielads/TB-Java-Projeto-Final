@@ -26,6 +26,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public ResponseEntity<Object> cadastrarCliente(@RequestBody Cliente clienteBody) {
         try {
             Cliente cliente = clienteService.cadastrarCliente(clienteBody);
@@ -36,6 +37,7 @@ public class ClienteController {
     }
 
     @GetMapping
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public ResponseEntity<List<Cliente>> listarClientes() {
         try {
             List<Cliente> clientes = clienteService.listarClientes();
@@ -47,36 +49,43 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public Cliente atualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
         return clienteService.atualizarCliente(id, cliente);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public Cliente buscarCliente(@PathVariable Long id) {
         return clienteService.buscarCliente(id);
     }
 
     @PostMapping("/{id}/transacoes")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public void realizarTransacao(@PathVariable Long id, @RequestBody Transacao transacao) {
         clienteService.realizarTransacao(id, transacao);
     }
 
     @GetMapping("/{id}/transacoes")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public List<Transacao> listarTransacoes(@PathVariable Long id) {
         return clienteService.listarTransacoes(id);
     }
 
     @PostMapping("/{id}/transacoesCredito")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public void realizarTransacaoCredito(@PathVariable Long id, @RequestBody TransacaoCredito transacaoCredito) {
         clienteService.realizarTransacaoCredito(id, transacaoCredito);
     }
 
     @GetMapping("/{id}/transacoesCredito")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public List<TransacaoCredito> listarTransacoesCredito(@PathVariable Long id) {
         return clienteService.listarTransacoesCredito(id);
     }
 
     @DeleteMapping("/{id}/delete")
+    @CrossOrigin(origins="*") // API pode ser acessada de qualquer IP
     public void delete(@PathVariable Long id){
         clienteService.deletarCliente(id);
     }
