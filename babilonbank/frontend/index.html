@@ -50,12 +50,103 @@
         </header>
         <main> 
             <div class="container">
+                <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12"  align="center">
+                    <br/>
+                    <h1> Bem vindo! </h1>
+                    <blockquote></blockquote>
+                    <h2> Babilon Bank é um banco inovador com a missão de ensinar as pessoas a utilizarem serviços bancários para promover sua segurança financeira e aumentar o entendimento das relações mercantis e da educação financeira. </h2>
+                    <blockquote></blockquote>
+                    <h4> Nosso objetivo é capacitar nossos clientes com o conhecimento necessário para tomar decisões financeiras informadas e eficazes. </h4>
+                    <br/>
+                </div>  
                 <blockquote></blockquote>
-                <h2> Bem vindo a sua conta! </h2>
+                <h2> Categorias disponíveis </h2>
                 <blockquote></blockquote>
-                <h3> Nessa página vamos falar sobre seus dados, limites e cheque especial</h3>
+                <table class="table">
+                    <theader>
+                        <tr>
+                            <th> Categoria </th> <th> Renda </th> <th> Produtos disponíveis </th> 
+                        </tr>
+                    </theader>
+                    <tbody>
+                        <tr>
+                            <td> BRONZE </td> <td> Menor que R$ 2000,00 </td> <td> Conta pagamento </td>
+                        </tr> 
+                        <tr>
+                            <td> PRATA </td> <td> Menor que R$ 3000,00 </td> <td> Conta pagamento, Cheque especial e Cartão de crédito </td>
+                        </tr>
+                        <tr>
+                            <td> OURO </td> <td> Menor que R$ 5000,00 </td> <td> Conta pagamento, Cheque especial, Cartão de crédito, Financiamento </td>
+                        </tr>
+                        <tr>
+                            <td> PLATINUM </td> <td> Maior que R$ 5000,00 </td> <td> Conta pagamento, Cheque especial, Cartão de crédito, Financiamento e Investimentos </td>
+                        </tr> 
+                    </tbody>
+                </table>
                 <blockquote></blockquote>
-                <p> O Babybylon Bank é mais do que um simples sistema bancário; é uma ferramenta educacional que visa capacitar os usuários com o conhecimento financeiro necessário para gerenciar suas finanças de maneira eficaz. A implementação apresentada oferece uma base sólida para um sistema bancário, seguindo as melhores práticas de desenvolvimento em Java com Spring Boot.</p>
+                <h2> Produtos disponíveis </h2>
+                <blockquote></blockquote>
+                <table class="table">
+                    <theader>
+                        <tr>
+                            <th> Produto </th> <th> Descrição </th>
+                        </tr>
+                    </theader>
+                    <tbody>
+                        <tr>
+                            <td> Cheque Especial </td> <td> Limite igual a 10% da renda do cliente </td>
+                        </tr>
+                        <tr>
+                            <td> Cartão de Crédito </td> <td> Limite correspondente a 60% da renda do cliente </td>
+                        </tr>
+                        <tr>
+                            <td> Financiamento </td> <td> Parcelas não podem ultrapassar 30% da renda do cliente </td>
+                        </tr>
+                        <tr>
+                            <td> Investimentos </td> <td> Porcentagem de retorno por Investimento </td>
+                        </tr> 
+                    </tbody>
+                </table>
+                <blockquote></blockquote>
+                <h2> Documentação API </h2>
+                <blockquote></blockquote>
+                <table class="table">
+                    <theader>
+                        <tr>
+                            <th> Métodos </th> <th> URL </th> <th> Ações </th> 
+                        </tr>
+                    </theader>
+                    <tbody>
+                        <tr>
+                            <td> POST </td> <td> /clientes </td> <td> Cadastra um novo cliente </td>
+                        </tr>
+                        <tr>
+                            <td> PUT </td> <td> /clientes/{id} </td> <td> Atualiza os dados de um cliente existente </td>
+                        </tr>
+                        <tr>
+                            <td> GET </td> <td> /clientes </td> <td> Lista todos os clientes </td>
+                        </tr>    
+                        <tr>
+                            <td> GET </td> <td> /clientes/{id} </td> <td> Obtém os dados de um cliente específico </td>
+                        </tr>    
+                        <tr>
+                            <td> POST </td> <td> /clientes/{id}/transacoes </td> <td> Realiza uma transação (crédito ou débito) na conta dodtdcliente </td>
+                        </tr>    
+                        <tr>
+                            <td> GET </td> <td> /clientes/{id}/transacoes </td> <td> Consulta as transações de um cliente</td>
+                        </tr> 
+                        <tr>
+                            <td> POST </td> <td> /clientes/{id}/transacoesCredito </td> <td> Lista todas as transações da conta do cldtdente </td>
+                        </tr>    
+                        <tr>
+                            <td> GET </td> <td> /clientes/{id}/transacoes </td> <td> Realiza uma transação do cartão de crédito. Débito nadtdFatura </td>
+                        </tr>    
+                        <tr>
+                            <td> POST </td> <td> clientes/{id}/transacoesCredito:</td> <td> Lista todas as transações da conta de crédito do cliente</td>
+                        </tr>  
+                    </tbody>
+                </table>
+
             </div> 
         </main>
         <footer>
