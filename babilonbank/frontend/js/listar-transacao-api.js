@@ -8,8 +8,7 @@ async function listarTransacao() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(transacao) // AQUI É O ERRO
+                }
             });
         
         // Verificar se a requisição foi bem-sucedida
@@ -18,7 +17,7 @@ async function listarTransacao() {
         }
         
         // Obter os dados da resposta
-        const transacao = await response.json();
+        const transacoes = await response.json();
         
         // Selecionar o elemento tbody onde os dados serão inseridos
         const conteudoTabelaTransacoes = document.getElementById('conteudoTabelaTransacoes');

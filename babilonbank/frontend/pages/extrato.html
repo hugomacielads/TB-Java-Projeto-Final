@@ -10,10 +10,10 @@
     <body>
         <header>
             <!-- navbar-expand-lg (barra expande somente em telas grandes)-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <!-- container-fluid ocupa toda a largura da página -->
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html"> PEP </a>
+                    <a class="navbar-brand" href="index.html"> BabilonBank 🪙 </a>
                     <!-- data-bs-target indica o conteúdo que aparece quando menu esconde -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#conteudo">
                         <span class="navbar-toggler-icon"> </span>
@@ -21,13 +21,10 @@
                     <div class="collapse navbar-collapse" id="conteudo">
                         <ul class="navbar-nav">
                             <li class="nav-item"> 
-                                <a class="nav-link" href="index.html"> Home </a>
+                                <a class="nav-link" href="../index.html"> Home </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="cliente.html"> Cadastro </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="conta.html"> Conta </a>
+                                <a class="nav-link" href="cliente.html"> Cliente </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="transacao.html"> Transação </a>
@@ -36,13 +33,13 @@
                                 <a class="nav-link" href="extrato.html"> Extrato </a>
                             </li>
                             <li class="nav-item"> 
-                                <a class="nav-link" href="fatura.html"> Cartão de Crédito </a> 
+                                <a class="nav-link" href="fatura.html"> Fatura </a> 
                             </li>
                             <li class="nav-item"> 
-                                <a class="nav-link" href="financiamento.html"> Financiamentos </a> 
+                                <a class="nav-link" href="financiamento.html"> Financiamento </a> 
                             </li>
                             <li class="nav-item"> 
-                                <a class="nav-link" href="investimento.html"> Investimentos </a>
+                                <a class="nav-link" href="investimento.html"> Investimento </a>
                             </li>
                         </ul>
                     </div>
@@ -50,15 +47,17 @@
             </nav>
         </header>
         <main> 
+            <br>
             <div class="container">
+                <h3> Extrato </h3>
                 <div class="mb-3">
-                    <label for="id" class="form-label"> Id </label>
+                    <label for="id" class="form-label"> ID : </label>
                     <input type="text" id="id" class="form-control" placeholder="Informe o ID do cliente"/>
                 </div>
                 <button type="button" onclick="listarTransacao()" class="btn btn-primary"> Listar Transações </button>
             </div>
+            <br>
             <div class="container">
-                <h3> Extrato </h3>
                 <table class="table">
                     <theader>
                         <tr>
