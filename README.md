@@ -1,8 +1,6 @@
-## Babybylon Bank
-### Babybylon Bank é um banco inovador com a missão de ensinar as pessoas a utilizarem serviços bancários para promover sua segurança financeira e aumentar o entendimento das relações mercantis e da educação financeira. Nosso objetivo é capacitar nossos clientes com o conhecimento necessário para tomar decisões financeiras informadas e eficazes.
-
-Termos mercado financeiro:
-Spread Bancário baseado em clientes de longo prazo, que crescem sua carteira conosco.
+## Babilon Bank
+Babilon Bank é um banco inovador com a missão de ensinar as pessoas a utilizarem serviços bancários para promover sua segurança financeira e aumentar o entendimento das relações mercantis e da educação financeira.
+Nosso objetivo é capacitar nossos clientes com o conhecimento necessário para tomar decisões financeiras informadas e eficazes.
 
 ## Descrição do Projeto
 Este projeto implementa um sistema bancário simples utilizando Java e o framework Spring Boot. O sistema segue o modelo MVC (Model-View-Controller) e permite interação via API RESTful. O sistema é capaz de gerenciar a criação de contas correntes e de pagamento, além de realizar transações bancárias.
